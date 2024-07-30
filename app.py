@@ -7,6 +7,7 @@ import base64
 from PIL import Image
 import pdf2image
 import io
+import subprocess
 
 # Setup the key from Api
 genai.configure(api_key="AIzaSyBOyi_88OdnheqC6c9wsma6HxnAryd5CtI")

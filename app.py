@@ -1,6 +1,6 @@
 # streamlit, google-genai, python-pdotenv, pdf2image
 # https://emojidb.org/resume-emojis?utm_source=user_search
-
+# https://resume-ats-score.streamlit.app/
 import streamlit as st #Streamlit
 import google.generativeai as genai # genai
 import os
@@ -27,9 +27,22 @@ submit1 = st.button(label = "Summary of Resume")
 submit2 = st.button(label = "ATR Matching Score")
 
 # Prompts:
-prompt1 = '''You are an experienced Technical Human Resource Manager,your task is to review the provided resume against the job description. Please share your professional evaluation on whether the candidate's profile aligns with the role. Highlight the strengths and weaknesses of the applicant in relation to the specified job requirements.
+prompt1 = '''You are an experienced Technical Human Resource Manager,\
+    your task is to review the provided resume against the \
+        job description. \
+            Please share your professional evaluation on whether the candidate's \
+                profile aligns with the role. \
+                    Highlight the strengths and weaknesses of the 
+                    applicant in relation to the specified job requirements.
 '''
-prompt2 = '''You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of data science and ATS functionality, your task is to evaluate the resume against the provided job description. give me the percentage of match if the resume matches the job description. First the output should come as percentage and then keywords missing and last final thoughts.
+prompt2 = '''You are an skilled ATS (Applicant Tracking System) \
+    scanner with a deep understanding of data science and \
+        ATS functionality, your task is to evaluate the resume \
+            against the provided job description. \
+                Give me the percentage of match if the resume matches the job description. \
+                    First the output should come as percentage and then \
+                        keywords missing(in bullet points) & \
+                            last final thoughts.
 '''
 # Gen Ai Model....
 def get_gemini_response(input, pdf_content, prompt):

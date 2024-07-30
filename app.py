@@ -12,6 +12,16 @@ import io
 genai.configure(api_key="AIzaSyBOyi_88OdnheqC6c9wsma6HxnAryd5CtI")
 # pdfinfo path
 os.environ["path"] = os.pathsep+"C:\Program Files (x86)\poppler\poppler-24.07.0\Library\bin"
+###Checking pdfinfo path
+# Print the PATH to debug
+print("PATH:", os.environ['PATH'])
+
+# Check if pdfinfo is accessible
+try:
+    result = subprocess.run(['pdfinfo', '-v'], capture_output=True, text=True, check=True)
+    print("pdfinfo version:", result.stdout)
+except subprocess.CalledProcessError as e:
+    print("Error running pdfinfo:", e)
 
 # Design the Front End
 st.set_page_config(layout="wide")

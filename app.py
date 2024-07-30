@@ -1,6 +1,5 @@
 # streamlit, google-genai, python-pdotenv, pdf2image
 # https://emojidb.org/resume-emojis?utm_source=user_search
-# https://resume-ats-score.streamlit.app/
 import streamlit as st #Streamlit
 import google.generativeai as genai # genai
 import os
@@ -9,8 +8,10 @@ from PIL import Image
 import pdf2image
 import io
 
-# Setup the key form Api
+# Setup the key from Api
 genai.configure(api_key="AIzaSyBOyi_88OdnheqC6c9wsma6HxnAryd5CtI")
+# pdfinfo path
+os.environ["path"] = os.pathsep+"C:\Program Files (x86)\poppler\poppler-24.07.0\Library\bin"
 
 # Design the Front End
 st.set_page_config(layout="wide")
